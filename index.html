@@ -3,25 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alysia's Bash-Inspired Portfolio</title>
+    <title>Alysia's Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="terminal">
-        <pre>
-            <span class="prompt">$</span> Welcome to Alysia's Portfolio
+    <div class="terminal" id="terminal">
+        <pre id="output">
+            <span class="prompt">$</span>
             <br>
-            <span class="prompt">$</span> <span class="command">1. About Me</span>
-            <br>
-            <span class="prompt">$</span> <span class="command">2. Projects</span>
-            <br>
-            <span class="prompt">$</span> <span class="command">3. Contact</span>
-            <br>
-            <span class="prompt">$</span> <span class="command">4. Exit</span>
+            <span class="prompt">$</span> <span class="command">Type a command and press Enter...</span>
             <br>
             <span class="prompt">$</span> <span class="blinking-cursor"></span>
         </pre>
+        <input type="text" id="input" autofocus />
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
-

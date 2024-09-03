@@ -1,41 +1,49 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const terminal = document.getElementById('terminal');
-    const inputField = document.getElementById('input');
-    const output = document.getElementById('output');
-    let history = [];
+const commands = {
+    help: `
+Available commands:
+- help: Display this help message.
+- about: Display information about me.
+- projects: Show a list of my projects.
+- contact: Display contact information.
+- clear: Clear the terminal.
+    `,
+    about: `
+[Your Name] - Security Researcher & Developer
+Experience in cloud architecture, DevOps, bug bounty hunting, and more.
+    `,
+    projects: `
+Projects:
+- Cloud Architecture Design: An efficient cloud infrastructure template.
+- Active Directory Course: A detailed course covering AD fundamentals.
+- DevOps CI/CD Pipeline: A fully automated pipeline setup.
+    `,
+    contact: `
+Contact Information:
+- Email: youremail@example.com
+- LinkedIn: linkedin.com/in/yourprofile
+- GitHub: github.com/yourprofile
+    `,
+    clear: ''
+};
 
-    inputField.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            const command = inputField.value.trim();
-            history.push(command);
-            processCommand(command);
-            inputField.value = '';
+document.getElementById('user-input').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        const input = this.value.trim().toLowerCase();
+        const outputDiv = document.getElementById('output');
+
+        if (commands[input]) {
+            if (input === 'clear') {
+                outputDiv.innerHTML = '';
+            } else {
+                outputDiv.innerHTML += `<p class="prompt">~[user@portfolio]$ ${input}</p>`;
+                outputDiv.innerHTML += `<p>${commands[input]}</p>`;
+            }
+        } else {
+            outputDiv.innerHTML += `<p class="prompt">~[user@portfolio]$ ${input}</p>`;
+            outputDiv.innerHTML += `<p>Command not found: ${input}</p>`;
         }
-    });
 
-    function processCommand(command) {
-        let response = '';
-
-        switch (command.toLowerCase()) {
-            case 'about':
-                response = 'About Me: I am a security researcher and IT professional.';
-                break;
-            case 'projects':
-                response = 'Projects:\n- Project 1: A description of project 1.\n- Project 2: A description of project 2.';
-                break;
-            case 'contact':
-                response = 'Contact: Email me at alysia@example.com.';
-                break;
-            case 'exit':
-                response = 'Goodbye!';
-                break;
-            default:
-                response = 'Command not found. Type "about", "projects", "contact", or "exit".';
-                break;
-        }
-
-        output.innerHTML += `<br><span class="prompt">$</span> ${command}<br><span class="response">${response}</span><br>`;
-        terminal.scrollTop = terminal.scrollHeight;
+        this.value = '';
+        outputDiv.scrollTop = outputDiv.scrollHeight;
     }
 });

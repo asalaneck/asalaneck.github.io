@@ -24,13 +24,15 @@ body {
 
 #output {
     white-space: pre-wrap;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     flex: 1; /* Allow output to take available space */
 }
 
 #input-line {
     display: flex;
-    align-items: center; /* Center input and prompt vertically */
+    align-items: center;
+    border-top: 1px solid #00FF00;
+    padding-top: 10px;
 }
 
 .prompt {
@@ -43,10 +45,11 @@ body {
     color: #00FF00;
     outline: none;
     font-family: "Courier New", Courier, monospace;
-    line-height: 1.5; /* Adjusts text height */
+    line-height: 2; /* Adjusts text height */
     padding: 2px 0; /* Adjust padding as needed */
     vertical-align: middle; /* Keeps text vertically aligned */
     width: 100%;
+    box-sizing: border-box;
 }
 
 #user-input::placeholder {

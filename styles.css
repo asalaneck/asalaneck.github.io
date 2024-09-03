@@ -39,8 +39,11 @@ body {
     border: none;
     color: #00FF00;
     outline: none;
-    width: 100%;
     font-family: "Courier New", Courier, monospace;
+    line-height: 1.5; /* Adjusts the height of the text */
+    padding: 2px 0; /* Controls spacing above and below the text */
+    vertical-align: middle; /* Keeps the text vertically aligned */
+    width: 100%;
 }
 
 #user-input::placeholder {

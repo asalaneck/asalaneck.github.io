@@ -1,67 +1,133 @@
 body {
-    font-family: monospace;
     background-color: black;
-    color: #00ff00;
+    color: #00FF00;
+    font-family: "Courier New", Courier, monospace;
     margin: 0;
-    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.terminal {
+#terminal {
+    background-color: #000000;
     padding: 20px;
-    border: 1px solid #00ff00;
-    border-radius: 5px;
     width: 80%;
-    margin: auto;
-    margin-top: 50px;
-    height: 300px;
+    height: 70%;
+    border-radius: 10px;
+    border: 2px solid #00FF00;
+    box-shadow: 0px 0px 20px rgba(0, 255, 0, 0.7);
     overflow-y: auto;
-    background-color: black;
 }
+
+#output {
+    white-space: pre-wrap;
+    margin-bottom: 10px;
+}
+
+#input-line {
+    display: flex;
+    align-items: center;
+}
+
 .prompt {
-    color: #00ff00;
+    margin-right: 5px;
 }
 
-.command {
-    color: #ffffff;
-}
-
-.blinking-cursor {
-    display: inline;
-    background-color: #00ff00;
-    width: 10px;
-    height: 20px;
-    animation: blink 1s step-start infinite;
-}
-
-@keyframes blink {
-    50% {
-        background-color: transparent;
-    }
-}
-
-.terminal::-webkit-scrollbar {
-    width: 8px;
-}
-
-.terminal::-webkit-scrollbar-thumb {
-    background: #00ff00;
-    border-radius: 4px;
-}
-
-.terminal::-webkit-scrollbar-track {
-    background: black;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-#input {
+#user-input {
+    background: none;
     border: none;
-    background: black;
-    color: #00ff00;
-    font-family: monospace;
-    font-size: 16px;
-    width: 100%;
+    color: #00FF00;
     outline: none;
+    width: 100%;
+    font-family: "Courier New", Courier, monospace;
+}
+
+#user-input::placeholder {
+    color: #00FF00;
+}
+
+#user-input::-moz-selection {
+    background: rgba(0, 255, 0, 0.3);
+}
+
+#user-input::selection {
+    background: rgba(0, 255, 0, 0.3);
+}
+
+/* Glitch effect */
+.glitch {
+    position: relative;
+    color: #00FF00;
+}
+
+.glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    background: none;
+    clip: rect(0, 900px, 0, 0);
+    animation: glitch 2s infinite linear;
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 red;
+    animation-delay: -0.3s;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 blue;
+    animation-delay: -0.6s;
+}
+
+@keyframes glitch {
+    0% {
+        clip: rect(42px, 9999px, 44px, 0);
+        transform: skew(0.3deg);
+    }
+    10% {
+        clip: rect(0, 9999px, 38px, 0);
+        transform: skew(0.1deg);
+    }
+    20% {
+        clip: rect(22px, 9999px, 68px, 0);
+        transform: skew(0.5deg);
+    }
+    30% {
+        clip: rect(88px, 9999px, 38px, 0);
+        transform: skew(0.2deg);
+    }
+    40% {
+        clip: rect(42px, 9999px, 34px, 0);
+        transform: skew(0.4deg);
+    }
+    50% {
+        clip: rect(90px, 9999px, 28px, 0);
+        transform: skew(0.6deg);
+    }
+    60% {
+        clip: rect(28px, 9999px, 60px, 0);
+        transform: skew(0.1deg);
+    }
+    70% {
+        clip: rect(82px, 9999px, 14px, 0);
+        transform: skew(0.3deg);
+    }
+    80% {
+        clip: rect(10px, 9999px, 24px, 0);
+        transform: skew(0.5deg);
+    }
+    90% {
+        clip: rect(12px, 9999px, 54px, 0);
+        transform: skew(0.2deg);
+    }
+    100% {
+        clip: rect(14px, 9999px, 74px, 0);
+        transform: skew(0.3deg);
+    }
 }

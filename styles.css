@@ -1,4 +1,3 @@
-/* General body styling */
 body {
     font-family: monospace;
     background-color: black;
@@ -7,7 +6,6 @@ body {
     padding: 0;
 }
 
-/* Terminal window styling */
 .terminal {
     padding: 20px;
     border: 1px solid #00ff00;
@@ -19,18 +17,14 @@ body {
     overflow-y: auto;
     background-color: black;
 }
-
-/* Terminal prompt styling */
 .prompt {
-    color: #00ff00; /* Green color for the prompt */
+    color: #00ff00;
 }
 
-/* Command styling */
 .command {
-    color: #ffffff; /* White color for commands */
+    color: #ffffff;
 }
 
-/* Blinking cursor effect */
 .blinking-cursor {
     display: inline;
     background-color: #00ff00;
@@ -39,14 +33,12 @@ body {
     animation: blink 1s step-start infinite;
 }
 
-/* Blinking cursor animation */
 @keyframes blink {
     50% {
         background-color: transparent;
     }
 }
 
-/* Scrollbar styling */
 .terminal::-webkit-scrollbar {
     width: 8px;
 }
@@ -60,7 +52,16 @@ body {
     background: black;
 }
 
-/* Optional: Smooth scroll */
 html {
     scroll-behavior: smooth;
+}
+
+#input {
+    border: none;
+    background: black;
+    color: #00ff00;
+    font-family: monospace;
+    font-size: 16px;
+    width: 100%;
+    outline: none;
 }

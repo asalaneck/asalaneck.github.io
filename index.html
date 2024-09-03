@@ -3,28 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alysia's Bash-Inspired Portfolio</title>
+    <title>Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="terminal" id="terminal">
-        <pre id="output">
-            <span class="prompt">$</span> Welcome to Alysia's Portfolio
-            <br>
-            <span class="prompt">$</span> Type a command and press Enter...
-            <br>
-            <span class="prompt">$</span> <span class="blinking-cursor"></span>
-        </pre>
-        <input type="text" id="input" autofocus />
-    </div>
-    <div class="help-section" id="help-section">
-        <h2>Available Commands</h2>
-        <ul>
-            <li><strong>ls</strong> - List available files and commands.</li>
-            <li><strong>cat [file]</strong> - Display the contents of the specified file (e.g., <code>cat about.html</code>).</li>
-            <li><strong>clear</strong> - Clear the terminal output.</li>
-            <li><strong>exit</strong> - Exit the terminal.</li>
-        </ul>
+    <div id="terminal">
+        <div id="output">
+            <p>Welcome to Alysia's Portfolio</p>
+            <p>Type 'help' to see available commands.</p>
+        </div>
+        <div id="input-line">
+            <span class="prompt">~[user@portfolio]$</span>
+            <input type="text" id="user-input" autofocus>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
